@@ -159,7 +159,6 @@ class BaseEmbedding(object):
             embed_input = sequence.pad_sequences(tokens, self.sequence_length[seq_idx], padding='post')
 
         embed_input = self.prepare_model_input(embed_input)
-        print(embed_input)
         embed_pred = self.model.predict(embed_input)
         if is_list:
             return embed_pred
@@ -463,7 +462,6 @@ class TwoHeadEmbedding(CustomEmbedding):
                 embed_input = sequence.pad_sequences(tokens, self.sequence_length, padding='post')
             embed_inputs.append(embed_input)
         embed_inputs = self.prepare_model_input(embed_inputs)
-        print(embed_inputs)
         embed_pred = self.model.predict(embed_inputs)
         return embed_pred
 
